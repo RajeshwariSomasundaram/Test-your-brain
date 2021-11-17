@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Your Brain</title>
+    <link rel="stylesheet" href="style.css">
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+        <div class= "container">
+        
+        <div class="title">
+            <h1>Test Your Brain</h1>
+        </div>
+        </div>
+       
+        
+        
+        
+        
+        <!--Start Quiz button-->
+        <div class="start_btn">
+            <button>Start Quiz</button>
+        </div>
+    
+
+    
+    <!--Info Box -->
+    <div class="info_box">
+        <div class="info_title">
+            <span>Some Rules of this Quiz</span>
+        </div>
+        <div class="info_list">
+            <div class="info">1. You will have only <span>30 seconds</span> per each question.</div>
+            <div class="info">2. Once you select your answer,you can't reselect.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+        </div>
+    </div>
+
+    <!--Quiz box-->
+    <div class="quiz_box">
+        <header>
+            
+            <div class="title2">TEST YOUR BRAIN!</div>
+            <div class="timer">
+                <div class="time_text">Time Left</div>
+                <div class="timer_sec">30</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+               <!--Here I've inserted question from javascript-->
+            </div>
+            <div class="option_list">
+                <!--Here I've inserted options from javascript-->
+            </div>
+        </section>
+
+        <!--Quiz box footer-->
+        <footer>
+            <div class="total_que">
+                <!--Here I've inserted Question Count Number from Javascript-->
+            </div>
+            <button class="next_btn">Next Que</button>
+        </footer>
+    </div>
+
+    <!--Result box-->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+           <!--Here I've inserted Score Result from Javascript-->
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+        </div>
+    </div>
+
+    <!--Inside this Javascript file I have inserted Questions and Options only-->
+    <script src="questions.js"></script>
+
+    <!--Inside this Javascript file I've coded all Quiz codes-->
+    <script src="script.js"></script>
+
+    <script 
+    src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" 
+    crossorigin="anonymous">
+</script>
+<script 
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" 
+    crossorigin="anonymous">
+</script>
+
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwcapsyVO8E5s5sOAzCdXr5-WkYzdRmoW0Qd4dgk1gmat19odchZXHI9w8yZaEoED_v/exec'
+const form = document.forms['google-sheets']
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  .then(response => $("#form_alerts").html("<div class='alert alert-success'>Contact message sent successfully.</div>"))
+  .catch(error => $("#form_alerts").html("<div class='alert alert-danger'>Contact message not sent.</div>"))
+})
+</script>
+
+
+</body>
+</html>
